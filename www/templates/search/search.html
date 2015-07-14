@@ -1,12 +1,20 @@
-<ion-view view-title="Find a Location">
+<ion-view view-title="Location Search">
   <ion-content>
-    <div class="list list-inset">
-      <label class="item item-input">
-        <i class="ion-android-search"></i>
-        <input
-        type="search" placeholder=" Search" ng-model="$parent.query" ng-change="queryChanged()">
+    <ion-list class="list-inset">
+      <ion-item>
+        <label class="item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input
+            type="search"
+            placeholder="Search location..."
+            ng-model="$parent.$parent.query"
+            ng-change="$parent.queryChanged()"
+          />
         </label>
-      </label>
-    </div>
+      </ion-item>
+      <ion-item ng-repeat="result in results">
+        {{result.formatted_address}}
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

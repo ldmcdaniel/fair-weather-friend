@@ -9,7 +9,12 @@ angular.module('fwf.search', [])
           params: { address: $scope.query }
         })
         .success(function (data) {
-          console.log(data);
+          // for (var i = 0; i < data.results.length; i++) {
+          //   console.log(data.results[i].formatted_address);
+          // }
+          $scope.results = data.results;
+          // console.log($scope.results);
+
         });
     }, 2000);
   });
