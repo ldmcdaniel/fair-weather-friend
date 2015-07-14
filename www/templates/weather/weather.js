@@ -1,5 +1,13 @@
 angular.module('fwf.weather', [])
 
-  .controller('WeatherCtrl', function () {
+  .controller('WeatherCtrl', function ($scope, $stateParams, $http) {
+
+    $scope.city = $stateParams.city;
+
+    $http
+      .get('/api/forecast/' + $stateParams.lat + ',' + $stateParams.long)
+      .success(function (data) {
+        console.log(data);
+      })
 
   });
