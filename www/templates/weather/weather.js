@@ -15,11 +15,12 @@ angular.module('fwf.weather', [])
 
   })
 
-  .factory('weather', function ($http) {
+  .factory('weather', function (settings, $http) {
     return {
-      getWeather: function (lat, long) {
-        $http
-          .get('/api/forecast/' + lat + ',' + long)
+      getWeather: function (lat, long, units) {
+        units = settings.units;
+        return $http
+          .get('/api/forecast/' + lat + ',' + long + '?units=' + units)
       }
     }
   });

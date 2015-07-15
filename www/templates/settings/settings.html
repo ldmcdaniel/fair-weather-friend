@@ -1,8 +1,10 @@
 <ion-view view-title="Settings">
   <ion-content>
-    <i>12℉</i>
-    <input type="range" ng-model="$parent.precision" name="decimal-places" min="0" max="2">
-    <i>12.34℉</i>
+    <div>
+      <i>12°</i>
+      <input type="range" ng-model="$parent.precision" ng-change="precisionChanged()" name="decimal-places" min="0" max="2">
+      <i>12.34°</i>
+    </div>
     <ion-radio ng-model="$parent.scale" ng-value="'F'">
       Farenheit
     </ion-radio>
