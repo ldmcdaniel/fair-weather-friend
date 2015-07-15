@@ -1,5 +1,17 @@
 <ion-view view-title="{{city}}">
   <ion-content>
-    <h1>Weather goes Here!</h1>
+    <ion-item>
+      Currently: {{results.currently.temperature.toFixed()}}℉ and {{results.currently.summary}}
+    </ion-item>
+    <ion-item>
+      {{results.minutely.summary}}
+    </ion-item>
+    <ion-item>
+      {{results.hourly.summary}}
+    </ion-item>
+    <ion-item>
+      {{results.daily.summary}}
+    </ion-item>
+
   </ion-content>
 </ion-view>

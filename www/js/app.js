@@ -8,7 +8,8 @@ angular.module('starter', [
   'ionic',
   'starter.controllers',
   'fwf.search',
-  'fwf.weather'])
+  'fwf.weather',
+  'fwf.settings'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -54,34 +55,16 @@ angular.module('starter', [
     }
   })
 
-
-  .state('app.browse', {
-    url: "/browse",
+  .state('app.settings', {
+    url: "/settings",
     views: {
       'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: "/playlists/:playlistId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+        templateUrl: "templates/settings/settings.html",
+        controller: 'SettingsCtrl'
       }
     }
   });
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/search');
 });

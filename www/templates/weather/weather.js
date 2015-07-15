@@ -1,13 +1,25 @@
 angular.module('fwf.weather', [])
 
-  .controller('WeatherCtrl', function ($scope, $stateParams, $http) {
+  .controller('WeatherCtrl', function (weather, $scope, $stateParams, $http, $ionicLoading) {
 
     $scope.city = $stateParams.city;
 
-    $http
-      .get('/api/forecast/' + $stateParams.lat + ',' + $stateParams.long)
+    $ionicLoading.show();
+
+    weather
+      .getWeather($stateParams.lat, $stateParams.long)
       .success(function (data) {
-        console.log(data);
+        $scope.results = data;
+        $ionicLoading.hide();
       })
 
+  })
+
+  .factory('weather', function ($http) {
+    return {
+      getWeather: function (lat, long) {
+        $http
+          .get('/api/forecast/' + lat + ',' + long)
+      }
+    }
   });
