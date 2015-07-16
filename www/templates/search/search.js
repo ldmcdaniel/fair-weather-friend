@@ -16,5 +16,5 @@ angular.module('fwf.search', [])
           // console.log($scope.results);
 
         });
-    }, 1500);
+    }, 1000);
   });

@@ -1,4 +1,7 @@
 <ion-view view-title="{{city}}">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-android-favorite-outline" ng-click="makeFavorite({city:params.city, lat:params.lat, long:params.long})"></button>
+  </ion-nav-buttons>
   <ion-content>
     <ion-item>
       Currently: {{results.currently.temperature | number:precision}}°{{scale}} and {{results.currently.summary}}
@@ -12,6 +15,5 @@
     <ion-item>
       {{results.daily.summary}}
     </ion-item>
-
   </ion-content>
 </ion-view>

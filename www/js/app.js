@@ -9,7 +9,8 @@ angular.module('starter', [
   'starter.controllers',
   'fwf.search',
   'fwf.weather',
-  'fwf.settings'])
+  'fwf.settings',
+  'fwf.menu'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -31,7 +32,7 @@ angular.module('starter', [
   .state('app', {
     url: "/app",
     abstract: true,
-    templateUrl: "templates/menu.html",
+    templateUrl: "templates/menu/menu.html",
     controller: 'AppCtrl'
   })
 
