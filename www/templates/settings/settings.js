@@ -14,11 +14,6 @@ angular.module('fwf.settings', [])
 
     $scope.$watch('scale', function () {
       settings.scale = $scope.scale;
-      if (settings.scale === 'F') {
-        settings.units = 'us';
-      } else {
-        settings.units = 'si';
-      }
     })
 
   })
@@ -26,7 +21,7 @@ angular.module('fwf.settings', [])
   .factory('settings', function () {
     return {
       get scale() {
-        return localStorage.getItem('scale') || 'F';
+        return localStorage.getItem('scale') || 'us';
       },
       get precision() {
         return localStorage.getItem('precision') || '0';
@@ -37,6 +32,5 @@ angular.module('fwf.settings', [])
       set precision(p) {
         localStorage.setItem('precision', p);
       }
-
     }
   });

@@ -18,7 +18,7 @@ angular.module('fwf.weather', [])
   .factory('weather', function (settings, $http) {
     return {
       getWeather: function (lat, long, units) {
-        units = settings.units;
+        units = settings.scale;
         return $http
           .get('/api/forecast/' + lat + ',' + long + '?units=' + units)
       }
