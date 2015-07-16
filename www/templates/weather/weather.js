@@ -1,8 +1,10 @@
 angular.module('fwf.weather', [])
 
-  .controller('WeatherCtrl', function (weather, $scope, $stateParams, $http, $ionicLoading) {
+  .controller('WeatherCtrl', function (weather, settings, $scope, $stateParams, $http, $ionicLoading) {
 
     $scope.city = $stateParams.city;
+    $scope.scale = settings.scale;
+    $scope.precision = settings.precision;
 
     $ionicLoading.show();
 
@@ -18,8 +20,14 @@ angular.module('fwf.weather', [])
   .factory('weather', function (settings, $http) {
     return {
       getWeather: function (lat, long) {
-        return $http
-          .get('/api/forecast/' + lat + ',' + long + '?units=' + settings.scale)
+        var API_URL = '/api/forecast/' + lat + ',' + long + '?units=';
+        if (settings.scale === 'F') {
+          return $http
+            .get(API_URL + 'us');
+        } else {
+          return $http
+            .get(API_URL + 'si');
+        }
       }
     }
   });

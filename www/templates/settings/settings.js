@@ -21,7 +21,7 @@ angular.module('fwf.settings', [])
   .factory('settings', function () {
     return {
       get scale() {
-        return localStorage.getItem('scale') || 'us';
+        return localStorage.getItem('scale') || 'F';
       },
       get precision() {
         return localStorage.getItem('precision') || '0';
