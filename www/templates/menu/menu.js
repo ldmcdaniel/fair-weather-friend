@@ -10,5 +10,6 @@ angular.module('fwf.menu', [])
     $scope.makeFavorite = function (obj) {
       location.addFavorite(obj);
       $scope.$emit('menuItemChanged');
-    };
-  });
+    }
+  })
+''
