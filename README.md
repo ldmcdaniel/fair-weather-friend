@@ -1,7 +1,5 @@
 # fair-weather-friend
 
-# Ionic-Calculator
-
 ## What is the project about?
 
 This is an in-class project at NSS.
